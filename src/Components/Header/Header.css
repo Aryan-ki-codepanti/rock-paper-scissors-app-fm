@@ -1,0 +1,37 @@
+.Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid var(--Header_Outline);
+    border-radius: 8px;
+    padding: 1em 2em;
+    text-transform: uppercase;
+}
+
+.Header .title {
+    color: white;
+    font-size: 1.2rem;
+    line-height: 0.8;
+    font-weight: 700;
+}
+
+.Header .score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 0.6em 2.4em 0.4em;
+    border-radius: 10px;
+}
+.Header .score span:nth-of-type(1) {
+    color: var(--Score_Text);
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+}
+.Header .score span:nth-of-type(2) {
+    color: var(--Dark_Text);
+    font-weight: 700;
+    margin-top: -0.1em;
+    font-size: 3.3rem;
+}
