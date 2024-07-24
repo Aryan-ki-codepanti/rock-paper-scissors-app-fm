@@ -26,6 +26,8 @@
     background-position: top;
 
     padding-top: 3em;
+
+    position: relative;
 }
 
 .container {
