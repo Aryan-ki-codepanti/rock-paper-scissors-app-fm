@@ -13,13 +13,19 @@ const ChoiceAction = () => {
             {!userChoice && (
                 <div className="user-select">
                     <div className="action paper">
-                        <img src={paperImg} alt="paper-action" />
+                        <div className="inner">
+                            <img src={paperImg} alt="paper-action" />
+                        </div>
                     </div>
                     <div className="action scissor">
-                        <img src={scissorImg} alt="scissor-action" />
+                        <div className="inner">
+                            <img src={scissorImg} alt="scissor-action" />
+                        </div>
                     </div>
                     <div className="action rock">
-                        <img src={rockImg} alt="rock-action" />
+                        <div className="inner">
+                            <img src={rockImg} alt="rock-action" />
+                        </div>
                     </div>
                 </div>
             )}

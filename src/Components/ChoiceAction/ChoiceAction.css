@@ -16,19 +16,45 @@
     justify-content: center;
 }
 
-.action {
+.action .inner {
     background: white;
     width: 80px;
     border-radius: 50%;
     padding: 1.3em;
     display: grid;
     place-items: center;
-
-    outline: 15px solid;
+    box-shadow: inset rgba(0, 0, 0, 0.3) -1px 6px 2px 0px;
 }
 
+.action {
+    box-shadow: inset rgba(0, 0, 0, 0.3) 0px -5px 2px 0px;
+    width: 110px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+}
+.action.scissor {
+    background-image: linear-gradient(
+        to bottom,
+        hsl(39, 89%, 49%) 0%,
+        hsl(40, 84%, 53%) 50%
+    );
+}
 .action.paper {
-    outline: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    background-image: linear-gradient(
+        to bottom,
+        hsl(230, 89%, 62%) 0%,
+        hsl(230, 89%, 65%) 50%
+    );
+}
+
+.action.rock {
+    background-image: linear-gradient(
+        to bottom,
+        hsl(349, 71%, 52%) 0,
+        hsl(349, 70%, 56%) 50%
+    );
 }
 
 .action img {
