@@ -1,9 +1,15 @@
 .ChoiceAction {
     margin-block: 2em;
     padding-block: 1.7em;
+
+    height: 355px;
+    display: grid;
+    place-items: center;
 }
 
 .user-select {
+    width: 100%;
+
     background-image: url("/images/bg-triangle.svg");
     background-repeat: no-repeat;
     background-position: center;
