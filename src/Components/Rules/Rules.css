@@ -67,3 +67,9 @@
 
     margin-left: auto;
 }
+
+@media screen and (max-width: 625px) {
+    .rule-btn {
+        margin-inline: auto;
+    }
+}
