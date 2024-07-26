@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./ChoiceAction.css";
 
 import paperImg from "../../Images/icon-paper.svg";
@@ -20,46 +20,40 @@ const ChoiceAction = () => {
         rock: rockImg
     };
 
-    useEffect(() => {
-        const determineWinner = () => {
-            if (!userChoice) return;
+    const determineWinner = (e, choice) => {
+        setUserChoice(prev => choice);
+        if (!choice) return;
 
-            let choices = ["paper", "scissor", "rock"].filter(
-                x => x !== userChoice
-            );
+        let choices = ["paper", "scissor", "rock"].filter(x => x !== choice);
 
-            let win = 0;
-            const randInt = Math.random() > 0.5 ? 1 : 0;
-            setHouseChoice(prev => choices[randInt]);
+        let win = 0;
+        const randInt = Math.random() > 0.5 ? 1 : 0;
+        setHouseChoice(prev => choices[randInt]);
 
-            // logic to decide winner
-            if (userChoice === "paper") {
-                if (houseChoice === "rock") {
-                    setResult(prev => "win");
-                    win = 1;
-                }
-                // scissor
-                else setResult(prev => "lose");
-            } else if (userChoice === "scissor") {
-                if (houseChoice === "rock") setResult(prev => "lose");
-                else {
-                    setResult(prev => "win");
-                    win = 1;
-                }
-            } else {
-                // rock
-                if (houseChoice === "paper") setResult(prev => "lose");
-                else {
-                    setResult(prev => "win");
-                    win = 1;
-                }
+        // logic to decide winner
+        if (choice === "paper") {
+            if (houseChoice === "rock") {
+                setResult(prev => "win");
+                win = 1;
             }
-
-            if (win) incrementScore();
-        };
-
-        determineWinner();
-    }, [userChoice, houseChoice, incrementScore]);
+            // scissor
+            else setResult(prev => "lose");
+        } else if (choice === "scissor") {
+            if (houseChoice === "rock") setResult(prev => "lose");
+            else {
+                setResult(prev => "win");
+                win = 1;
+            }
+        } else {
+            // rock
+            if (choice === "paper") setResult(prev => "lose");
+            else {
+                setResult(prev => "win");
+                win = 1;
+            }
+        }
+        if (win) incrementScore();
+    };
 
     return (
         <div className="ChoiceAction container">
@@ -67,7 +61,7 @@ const ChoiceAction = () => {
                 <div className="user-select">
                     <div
                         className="action paper"
-                        onClick={e => setUserChoice(prev => "paper")}
+                        onClick={e => determineWinner(e, "paper")}
                     >
                         <div className="inner">
                             <img src={paperImg} alt="paper-action" />
@@ -75,7 +69,7 @@ const ChoiceAction = () => {
                     </div>
                     <div
                         className="action scissor"
-                        onClick={e => setUserChoice(prev => "scissor")}
+                        onClick={e => determineWinner(e, "scissor")}
                     >
                         <div className="inner">
                             <img src={scissorImg} alt="scissor-action" />
@@ -83,7 +77,7 @@ const ChoiceAction = () => {
                     </div>
                     <div
                         className="action rock"
-                        onClick={e => setUserChoice(prev => "rock")}
+                        onClick={e => determineWinner(e, "rock")}
                     >
                         <div className="inner">
                             <img src={rockImg} alt="rock-action" />
